@@ -6,14 +6,14 @@
   "scripts": {
     "test": "TZ=UTC jest",
     "cov": "TZ=UTC jest --coverage=true",
-    "build": "build src",
-    "build:js": "build src --skip-typings",
+    "build": "build src bin",
+    "build:js": "build src bin --skip-typings",
     "check": "tsc --noEmit",
-    "lint": "eslint './src/**/*.{ts,tsx}'",
-    "lint:fix": "eslint --fix './src/**/*.{ts,tsx}'",
+    "lint": "eslint './src/**/*.{ts,tsx}' './bin/**/*.{ts,tsx}'",
+    "lint:fix": "eslint --fix './src/**/*.{ts,tsx}' './bin/**/*.{ts,tsx}'",
     "ci-jest": "TZ=UTC jest --silent --no-color --json 2> /dev/null; res=$?; echo; exit $res",
     "ci-audit": "npm audit --json || true",
-    "ci-eslint": "eslint --format json './src/**/*.{ts,tsx}' || true"
+    "ci-eslint": "eslint --format json './src/**/*.{ts,tsx}' './bin/**/*.{ts,tsx}' || true"
   },
   "repository": {
     "type": "git",
@@ -49,7 +49,9 @@
     "typescript": "3.8.3"
   },
   "dependencies": {
-    "@types/node": "^13.13.4"
+    "@types/node": "^13.13.4",
+    "google-auth-library": "^6.0.0",
+    "googleapis": "^49.0.0"
   },
   "engines": {
     "node": ">=10.15.0"
