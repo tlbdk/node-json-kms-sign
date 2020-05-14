@@ -1,6 +1,7 @@
 import crypto from 'crypto'
 
-import { Json } from './common'
+// https://github.com/microsoft/TypeScript/issues/1897
+export type Json = null | boolean | number | string | Json[] | { [prop: string]: Json }
 
 const arrayOpen = Buffer.from('[', 'utf8')
 const arrayClose = Buffer.from(']', 'utf8')
